@@ -5,18 +5,18 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kidentitymanagement
-Version  : 18.08.0
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kidentitymanagement-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kidentitymanagement-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kidentitymanagement-18.08.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.2
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kidentitymanagement-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kidentitymanagement-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kidentitymanagement-18.12.2.tar.xz.sig
+Summary  : KDE PIM libraries
 Group    : Development/Tools
 License  : LGPL-2.1
-Requires: kidentitymanagement-lib
-Requires: kidentitymanagement-data
-Requires: kidentitymanagement-license
-Requires: kidentitymanagement-locales
+Requires: kidentitymanagement-data = %{version}-%{release}
+Requires: kidentitymanagement-lib = %{version}-%{release}
+Requires: kidentitymanagement-license = %{version}-%{release}
+Requires: kidentitymanagement-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kpimtextedit-dev
@@ -35,9 +35,9 @@ data components for the kidentitymanagement package.
 %package dev
 Summary: dev components for the kidentitymanagement package.
 Group: Development
-Requires: kidentitymanagement-lib
-Requires: kidentitymanagement-data
-Provides: kidentitymanagement-devel
+Requires: kidentitymanagement-lib = %{version}-%{release}
+Requires: kidentitymanagement-data = %{version}-%{release}
+Provides: kidentitymanagement-devel = %{version}-%{release}
 
 %description dev
 dev components for the kidentitymanagement package.
@@ -46,8 +46,8 @@ dev components for the kidentitymanagement package.
 %package lib
 Summary: lib components for the kidentitymanagement package.
 Group: Libraries
-Requires: kidentitymanagement-data
-Requires: kidentitymanagement-license
+Requires: kidentitymanagement-data = %{version}-%{release}
+Requires: kidentitymanagement-license = %{version}-%{release}
 
 %description lib
 lib components for the kidentitymanagement package.
@@ -70,25 +70,25 @@ locales components for the kidentitymanagement package.
 
 
 %prep
-%setup -q -n kidentitymanagement-18.08.0
+%setup -q -n kidentitymanagement-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535429377
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549896967
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535429377
+export SOURCE_DATE_EPOCH=1549896967
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kidentitymanagement
-cp COPYING.LIB %{buildroot}/usr/share/doc/kidentitymanagement/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/kidentitymanagement
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kidentitymanagement/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -129,11 +129,11 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5IdentityManagement.so.5
-/usr/lib64/libKF5IdentityManagement.so.5.9.0
+/usr/lib64/libKF5IdentityManagement.so.5.10.2
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kidentitymanagement/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kidentitymanagement/COPYING.LIB
 
 %files locales -f libkpimidentities5.lang
 %defattr(-,root,root,-)
