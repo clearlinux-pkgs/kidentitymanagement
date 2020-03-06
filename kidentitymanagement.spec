@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kidentitymanagement
-Version  : 19.12.2
-Release  : 18
-URL      : https://download.kde.org/stable/release-service/19.12.2/src/kidentitymanagement-19.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.2/src/kidentitymanagement-19.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.2/src/kidentitymanagement-19.12.2.tar.xz.sig
+Version  : 19.12.3
+Release  : 19
+URL      : https://download.kde.org/stable/release-service/19.12.3/src/kidentitymanagement-19.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.3/src/kidentitymanagement-19.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.3/src/kidentitymanagement-19.12.3.tar.xz.sig
 Summary  : KDE PIM libraries
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -72,15 +72,15 @@ locales components for the kidentitymanagement package.
 
 
 %prep
-%setup -q -n kidentitymanagement-19.12.2
-cd %{_builddir}/kidentitymanagement-19.12.2
+%setup -q -n kidentitymanagement-19.12.3
+cd %{_builddir}/kidentitymanagement-19.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581047665
+export SOURCE_DATE_EPOCH=1583506228
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -97,10 +97,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1581047665
+export SOURCE_DATE_EPOCH=1583506228
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kidentitymanagement
-cp %{_builddir}/kidentitymanagement-19.12.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/kidentitymanagement/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kidentitymanagement-19.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kidentitymanagement/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -141,7 +141,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5IdentityManagement.so.5
-/usr/lib64/libKF5IdentityManagement.so.5.13.2
+/usr/lib64/libKF5IdentityManagement.so.5.13.3
 
 %files license
 %defattr(0644,root,root,0755)
