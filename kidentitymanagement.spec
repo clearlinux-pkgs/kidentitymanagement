@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kidentitymanagement
-Version  : 20.12.0
-Release  : 26
-URL      : https://download.kde.org/stable/release-service/20.12.0/src/kidentitymanagement-20.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.0/src/kidentitymanagement-20.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.0/src/kidentitymanagement-20.12.0.tar.xz.sig
+Version  : 20.12.1
+Release  : 27
+URL      : https://download.kde.org/stable/release-service/20.12.1/src/kidentitymanagement-20.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.1/src/kidentitymanagement-20.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.1/src/kidentitymanagement-20.12.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
@@ -80,15 +80,15 @@ locales components for the kidentitymanagement package.
 
 
 %prep
-%setup -q -n kidentitymanagement-20.12.0
-cd %{_builddir}/kidentitymanagement-20.12.0
+%setup -q -n kidentitymanagement-20.12.1
+cd %{_builddir}/kidentitymanagement-20.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607910243
+export SOURCE_DATE_EPOCH=1610047547
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -104,11 +104,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1607910243
+export SOURCE_DATE_EPOCH=1610047547
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kidentitymanagement
-cp %{_builddir}/kidentitymanagement-20.12.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kidentitymanagement/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kidentitymanagement-20.12.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kidentitymanagement/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kidentitymanagement-20.12.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kidentitymanagement/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kidentitymanagement-20.12.1/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kidentitymanagement/6f1f675aa5f6a2bbaa573b8343044b166be28399
 pushd clr-build
 %make_install
 popd
@@ -149,7 +149,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5IdentityManagement.so.5
-/usr/lib64/libKF5IdentityManagement.so.5.16.0
+/usr/lib64/libKF5IdentityManagement.so.5.16.1
 
 %files license
 %defattr(0644,root,root,0755)
