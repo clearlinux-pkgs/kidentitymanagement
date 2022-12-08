@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kidentitymanagement
-Version  : 22.08.3
-Release  : 46
-URL      : https://download.kde.org/stable/release-service/22.08.3/src/kidentitymanagement-22.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.3/src/kidentitymanagement-22.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.3/src/kidentitymanagement-22.08.3.tar.xz.sig
+Version  : 22.12.0
+Release  : 47
+URL      : https://download.kde.org/stable/release-service/22.12.0/src/kidentitymanagement-22.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.0/src/kidentitymanagement-22.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.0/src/kidentitymanagement-22.12.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.0 LGPL-2.1
@@ -79,15 +79,15 @@ locales components for the kidentitymanagement package.
 
 
 %prep
-%setup -q -n kidentitymanagement-22.08.3
-cd %{_builddir}/kidentitymanagement-22.08.3
+%setup -q -n kidentitymanagement-22.12.0
+cd %{_builddir}/kidentitymanagement-22.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667887747
+export SOURCE_DATE_EPOCH=1670542908
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -103,7 +103,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667887747
+export SOURCE_DATE_EPOCH=1670542908
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kidentitymanagement
 cp %{_builddir}/kidentitymanagement-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/kidentitymanagement/c011fda7746c087a127999da1c4044854ee42238 || :
@@ -157,9 +157,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5IdentityManagement.so.5
-/usr/lib64/libKF5IdentityManagement.so.5.21.3
+/usr/lib64/libKF5IdentityManagement.so.5.22.0
 /usr/lib64/libKF5IdentityManagementWidgets.so.5
-/usr/lib64/libKF5IdentityManagementWidgets.so.5.21.3
+/usr/lib64/libKF5IdentityManagementWidgets.so.5.22.0
 
 %files license
 %defattr(0644,root,root,0755)
