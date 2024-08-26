@@ -1,5 +1,5 @@
 PKG_NAME := kidentitymanagement
-URL = https://download.kde.org/stable/release-service/24.05.2/src/kidentitymanagement-24.05.2.tar.xz
+URL = https://download.kde.org/stable/release-service/24.08.0/src/kidentitymanagement-24.08.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
